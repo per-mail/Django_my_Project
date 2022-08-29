@@ -1,0 +1,5 @@
+django
+django-simple-captcha
+django-debug-toolbar
+django-ckeditor
+django-mptt

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ news_item.title }} :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="card box-shadow m-2 form-wrap">
+                <div class="card-header text-center">
+                    <h3>Результат конвертации</h3>
+                </div>
+                <form id="form" class="p-3" action='' method="POST">
+                    {% csrf_token %}                                    
+                        <div class="card col-6 p-0 m-auto">
+                            <div class="card-header text-center">
+							      <h5>СУММА ПРОДАЖИ <b>{{ sume }}</b> <b>{{ curr_in }}</b></h5>
+                               </div>                                 
+                                 <div class="card-body text-center">
+                                <h5>СУММА ПОКУПКИ <b>{{ rez }}</b> <b>{{ curr_out }}</b><h5>
+                            </div>
+                        </div>                    
+                     <div class="submit-btn mt-3 text-center">
+                        <input type="button" onclick="history.back();" value="Повторить операцию"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
